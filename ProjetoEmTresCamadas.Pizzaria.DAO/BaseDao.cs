@@ -13,18 +13,22 @@ public abstract class BaseDao<T> : IDao<T>
 
     public string TabelaName { get; set; }
 
+    public string DeleteQuery {  get; set; }
+
     protected BaseDao(
         string tabelaQuery, 
         string selectQuery, 
         string insertQuery,
         string tabelaName,
-        string updateQuery)
+        string updateQuery,
+        string deleteQuery)
     {
         TabelaCreateQuery = tabelaQuery;
         SelectQuery = selectQuery;
         InsertQuery = insertQuery;
         TabelaName = tabelaName;
         UpdateQuery = updateQuery;
+        DeleteQuery = deleteQuery;
         CriarBancoDeDados();
     }
 
@@ -118,5 +122,27 @@ public abstract class BaseDao<T> : IDao<T>
                 }
             }
         });
+    }
+
+    public void Deletar(int ID)
+    {
+        {
+            using (var sqlConnection = new SqliteConnection(CONNECTION_STRING))
+            {
+                sqlConnection.Open();
+
+                using (var command = sqlConnection.CreateCommand())
+                {
+                    command.CommandText = DeleteQuery;
+
+                    // Assume que as propriedades do objetoVo correspondem aos parâmetros do comando SQL
+                    {
+                        command.Parameters.AddWithValue($"Id", ID);
+                    }
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

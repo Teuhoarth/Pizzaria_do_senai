@@ -6,4 +6,6 @@ public interface IDao<T>
     int CriarRegistro(T objetoVo);
 
     Task AtualizarRegistro(T objetoParaAtualizar);
+
+    void Deletar(int ID);
 }
