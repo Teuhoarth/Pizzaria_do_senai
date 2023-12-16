@@ -11,6 +11,7 @@ public abstract class BaseDao<T> : IDao<T>
     public string InsertQuery { get; set; }
     public string UpdateQuery { get; set; }
 
+
     public string TabelaName { get; set; }
 
     public string DeleteQuery {  get; set; }

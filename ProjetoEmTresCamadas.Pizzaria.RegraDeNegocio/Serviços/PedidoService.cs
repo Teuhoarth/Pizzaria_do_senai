@@ -12,12 +12,12 @@ public class PedidoService :
         throw new NotImplementedException();
     }
 
-    public Cliente Adicionar(Cliente objeto)
+    public Pizza Adicionar(Pizza objeto)
     {
         throw new NotImplementedException();
     }
 
-    public void FazerPedido(Cliente cliente, Pizza pizza)
+    public void FazerPedido(Pizza cliente, Pizza pizza)
     {
         throw new NotImplementedException();
     }

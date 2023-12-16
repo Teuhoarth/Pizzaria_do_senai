@@ -13,6 +13,6 @@ namespace ProjetoEmTresCamadas.Pizzaria.RegraDeNegocio.Regras;
 
 public interface IPedidoService
 {
-    void FazerPedido(Cliente cliente, Pizza pizza);
+    void FazerPedido(Pizza cliente, Pizza pizza);
     string ObterInformacoesPedidos();
 }

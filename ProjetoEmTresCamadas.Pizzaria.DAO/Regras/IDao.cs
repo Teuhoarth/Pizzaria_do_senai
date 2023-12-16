@@ -2,6 +2,7 @@
 
 public interface IDao<T>
 {
+    //Task<T>obterRegistro(int id);//
     List<T> ObterRegistros();
     int CriarRegistro(T objetoVo);
 

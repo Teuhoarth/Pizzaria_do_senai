@@ -1,4 +1,5 @@
-﻿using ProjetoEmTresCamadas.Pizzaria.DAO.ValueObjects;
+﻿using ProjetoEmTresCamadas.Pizzaria.DAO;
+using ProjetoEmTresCamadas.Pizzaria.DAO.ValueObjects;
 
 namespace ProjetoEmTresCamadas.Pizzaria.RegraDeNegocio.Entidades;
 
@@ -23,9 +24,9 @@ public class Pizza : EntidadeBase
         return $"Sua Pizza é de sabor {Sabor} e tamanho {TamanhoDePizza}";
     }
 
-    public PizzaVo ToPizzaVo()
+    public PizzaDao ToPizzaVo()
     {
-        return new PizzaVo()
+        return new PizzaDao()
         {
             Id = Id,
             Descricao = Descricao,

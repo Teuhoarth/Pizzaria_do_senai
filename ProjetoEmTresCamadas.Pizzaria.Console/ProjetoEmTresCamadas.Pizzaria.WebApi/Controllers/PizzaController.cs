@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProjetoEmTresCamadas.Pizzaria.RegraDeNegocio.Entidades;
+using ProjetoEmTresCamadas.Pizzaria.RegraDeNegocio.Regras;
 using ProjetoEmTresCamadas.Pizzaria.RegraDeNegocio.Serviços;
 
 namespace ProjetoEmTresCamadas.Pizzaria.WebApi.Controllers
