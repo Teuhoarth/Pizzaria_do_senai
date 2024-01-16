@@ -7,22 +7,8 @@ namespace ProjetoEmTresCamadas.Pizzaria.RegraDeNegocio.Serviços;
 
 public class ClienteService : IObter<Cliente>, IAdicionar<Cliente>
 {
+
     public Cliente Adicionar(Cliente objeto)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void Adicionar(int ID)
-    {
-        throw new NotImplementedException();
-    }
-
-    public List<Cliente> ObterTodos()
-    {
-        throw new NotImplementedException();
-    }
-
-    public Cliente Adicionar(Pizza objeto)
     {
         ClienteDao clienteVo = objeto.ToPizzaVo();
         objeto.Id = ClienteDao.CriarRegistro(clienteVo);
@@ -40,7 +26,6 @@ public class ClienteService : IObter<Cliente>, IAdicionar<Cliente>
             {
                 Nome = clienteVo.Nome,
                 Telefone = clienteVo.Telefone,
-                Idade = (TamanhoDePizza)clienteVo.Idade,
                 Id = clienteVo.Id,
             };
             clientes.Add(cliente);

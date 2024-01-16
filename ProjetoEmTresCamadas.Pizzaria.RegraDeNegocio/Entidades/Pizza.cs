@@ -24,9 +24,9 @@ public class Pizza : EntidadeBase
         return $"Sua Pizza é de sabor {Sabor} e tamanho {TamanhoDePizza}";
     }
 
-    public PizzaDao ToPizzaVo()
+    public PizzaVo ToPizzaVo()
     {
-        return new PizzaDao()
+        return new PizzaVo()
         {
             Id = Id,
             Descricao = Descricao,

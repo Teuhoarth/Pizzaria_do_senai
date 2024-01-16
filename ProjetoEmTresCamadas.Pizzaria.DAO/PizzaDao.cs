@@ -4,11 +4,11 @@ using ProjetoEmTresCamadas.Pizzaria.DAO.ValueObjects;
 
 namespace ProjetoEmTresCamadas.Pizzaria.DAO;
 
-public interface IPizzaDao: IDao<PizzaDao>
+public interface IPizzaDao : IDao<PizzaVo>
 {
 
 }
-public class PizzaDao :  BaseDao<PizzaDao>, IPizzaDao
+public class PizzaDao :  BaseDao<PizzaVo>, IPizzaDao
 {
     private const string TABELA_PIZZA_NOME = "TB_PIZZA";
 
@@ -44,9 +44,9 @@ public class PizzaDao :  BaseDao<PizzaDao>, IPizzaDao
 
     public PizzaDao() : base(TABELA_PIZZA, SELECT_PIZZA, INSERIR_PIZZA, TABELA_PIZZA_NOME, UPDATE_PIZZA, DELETE_PIZZA) {}
 
-    protected override PizzaDao CriarInstancia(SqliteDataReader sqliteDataReader)
+    protected override PizzaVo CriarInstancia(SqliteDataReader sqliteDataReader)
     {
-        return new PizzaDao
+        return new PizzaVo
         {
             Id = Convert.ToInt32(sqliteDataReader["Id"]),
             Sabor = sqliteDataReader["Sabor"].ToString(),

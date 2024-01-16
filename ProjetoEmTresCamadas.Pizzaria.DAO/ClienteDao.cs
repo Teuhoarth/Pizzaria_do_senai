@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace ProjetoEmTresCamadas.Pizzaria.DAO
 {
-    public interface IClienteDao : IDao<ClienteDao>
+    public interface IClienteDao : IDao<ClienteVo>
     {
 
     }
 
-    public class ClienteDao : BaseDao<ClienteDao>
+    public class ClienteDao : BaseDao<ClienteVo>
     {
         private const string TABELA_CLIENTE_NOME = "TB_CLIENTE";
 
@@ -50,9 +50,9 @@ namespace ProjetoEmTresCamadas.Pizzaria.DAO
 
         public ClienteDao() : base(TABELA_CLIENTE, SELECT_CLIENTE, INSERIR_PIZZA, TABELA_CLIENTE_NOME, UPDATE_CLIENTE, DELETE_CLIENTE) { }
 
-        protected override ClienteDao CriarInstancia(SqliteDataReader sqliteDataReader)
+        protected override ClienteVo CriarInstancia(SqliteDataReader sqliteDataReader)
         {
-            return new ClienteDao
+            return new ClienteVo
             {
                 Id = Convert.ToInt32(sqliteDataReader["Id"]),
                 Nome = sqliteDataReader["Nome"].ToString(),
